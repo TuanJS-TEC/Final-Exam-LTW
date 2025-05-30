@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a3f906b5-afa6-4787-bf40-7379c58b2eb9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/HoangTuan_Code.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.vscode/c_cpp_properties.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.vscode/launch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CNPM/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CNPM/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CNPM/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CNPM/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CNPM/CNPM.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CNPM/GiaoDienDangNhap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CNPM/GiaoDienQuanLyNhanVien.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/LoginRegister.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/TopBar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/context/UserContext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/Practice_Code.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../photo-sharing-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sandbox/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sandbox/.idea/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2xogN9pr4869ykpG4siInXf5vle" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.localhost:5174.executor": "Debug",
+    "JavaScript Debug.localhost:5176.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="JavaScript Debug.localhost:5176">
+    <configuration name="localhost:5174" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5174/">
+      <method v="2" />
+    </configuration>
+    <configuration name="localhost:5176" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5176/">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.localhost:5176" />
+        <item itemvalue="JavaScript Debug.localhost:5174" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.112" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3f906b5-afa6-4787-bf40-7379c58b2eb9" name="Changes" comment="" />
+      <created>1748609797210</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748609797210</updated>
+      <workItem from="1748609798236" duration="12030000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
