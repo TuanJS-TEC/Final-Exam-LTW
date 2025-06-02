@@ -1,4 +1,4 @@
-# Node.js template
+# Final-Exam-LTW
 
 This is a Node.js project.
 
