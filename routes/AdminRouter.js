@@ -48,7 +48,7 @@ router.post('/login', async(req, res)=>{
         });
 
     } catch(err){
-        console.error('Error during login process: ', error);
+        console.error('Error during login process: ', err);
         res.status(500).json({message:'server error during login process.'});
     }
 });

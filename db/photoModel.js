@@ -1,3 +1,4 @@
+// backend/db/photoModel.js
 const mongoose = require("mongoose");
 
 /**
@@ -9,7 +10,8 @@ const commentSchema = new mongoose.Schema({
   // The date and time when the comment was created.
   date_time: { type: Date, default: Date.now },
   // The ID of the user who created the comment.
-  user_id: mongoose.Schema.Types.ObjectId,
+  // *** THÊM ref: 'User' VÀO ĐÂY ***
+  user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 /**
@@ -21,15 +23,17 @@ const photoSchema = new mongoose.Schema({
   // The date and time when the photo was added to the database.
   date_time: { type: Date, default: Date.now },
   // The ID of the user who created the photo.
-  user_id: mongoose.Schema.Types.ObjectId,
+  // *** THÊM ref: 'User' VÀO ĐÂY ***
+  user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   // Array of comment objects representing the comments made on this photo.
   comments: [commentSchema],
 });
 
 /**
  * Create a Mongoose Model for a Photo using the photoSchema.
+ * Sử dụng mongoose.models.Photos để tránh lỗi OverwriteModelError trong môi trường dev với HMR.
  */
-const Photo = mongoose.model.Photos || mongoose.model("Photos", photoSchema);
+const Photo = mongoose.models.Photos || mongoose.model("Photos", photoSchema);
 
 /**
  * Make this available to our application.

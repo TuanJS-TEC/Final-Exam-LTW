@@ -5,42 +5,46 @@
  *
  * models.userListModel() - A function that returns the list of users on
  * the system. The list is returned as an array of objects containing:
- *   _id (string)         - The ID of the user.
- *   first_name (string)  - The first name of the user.
- *   last_name (string)   - The last name of the user.
- *   location (string)    - The location of the user.
- *   description (string) - A brief user description.
- *   occupation (string)  - The occupation of the user.
+ * _id (string)         - The ID of the user.
+ * first_name (string)  - The first name of the user.
+ * last_name (string)   - The last name of the user.
+ * location (string)    - The location of the user.
+ * description (string) - A brief user description.
+ * occupation (string)  - The occupation of the user.
  *
  * models.userModel() - A function that returns the info of the specified
  * user. Called with an user ID (id), the function returns n object containing:
- *   _id (string)         - The ID of the user.
- *   first_name (string)  - The first name of the user.
- *   last_name (string)   - The last name of the user.
- *   location (string)    - The location of the user.
- *   description (string) - A brief user description.
- *   occupation (string)  - The occupation of the user.
+ * _id (string)         - The ID of the user.
+ * first_name (string)  - The first name of the user.
+ * last_name (string)   - The last name of the user.
+ * location (string)    - The location of the user.
+ * description (string) - A brief user description.
+ * occupation (string)  - The occupation of the user.
  *
  * models.photoOfUserModel() - A function that returns the photos belong to
  * the specified user. Called with an user ID (id), the function returns an
  * object containing:
- *   _id (string)         - The ID of the photo
- *   date_time (date)     - The date and time the picture was taken in ISO
- *                          format.
- *   file_name (string)   - The file name in the image directory of the picture.
- *   user_id (string)     - The user id of the picture's owner.
- *   comments ([objects]) - An array of Comments with the properties:
- *       _id (string)       - The ID of the comment.
- *       date_time (date)   - The date the comment was made in ISO format.
- *       comment (string)   - The text of the comment.
- *       user: (object)     - The user who made the comment.
- *       photo_id: (string) - The ID of the photo the comment belongs to.
+ * _id (string)         - The ID of the photo
+ * date_time (date)     - The date and time the picture was taken in ISO
+ * format.
+ * file_name (string)   - The file name in the image directory of the picture.
+ * user_id (string)     - The user id of the picture's owner.
+ * comments ([objects]) - An array of Comments with the properties:
+ * _id (string)       - The ID of the comment.
+ * date_time (date)   - The date the comment was made in ISO format.
+ * comment (string)   - The text of the comment.
+ * user: (object)     - The user who made the comment.
+ * photo_id: (string) - The ID of the photo the comment belongs to.
+ *
+ * models.photoListModel() - A function that returns the list of all photos on the
+ * system, with comments already processed and attached to each photo object.
+ * Each photo object in the returned array will have a 'comments' property.
  *
  * models.schemaModel() - A function that returns the test info from the
  * fake schema. The function returns an object containing:
- *   _id (string)           - The ID of the schema.
- *   __v (number)           - The version number.
- *   load_date_time (date)  - The date the schema was made in ISO format.
+ * _id (string)           - The ID of the schema.
+ * __v (number)           - The version number.
+ * load_date_time (date)  - The date the schema was made in ISO format.
  */
 
 const schemaInfo = {
@@ -50,10 +54,9 @@ const schemaInfo = {
 };
 
 // Create init users.
-
 const im = {
   _id: "57231f1a30e4351f4e9f4bd7",
-  login_name: "imalcolm", // <-- THÊM DÒNG NÀY
+  login_name: "imalcolm",
   first_name: "Ian",
   last_name: "Malcolm",
   location: "Austin, TX",
@@ -62,7 +65,7 @@ const im = {
 };
 const er = {
   _id: "57231f1a30e4351f4e9f4bd8",
-  login_name: "eripley", // <-- THÊM DÒNG NÀY
+  login_name: "eripley",
   first_name: "Ellen",
   last_name: "Ripley",
   location: "Nostromo",
@@ -71,7 +74,7 @@ const er = {
 };
 const pt = {
   _id: "57231f1a30e4351f4e9f4bd9",
-  login_name: "ptook", // <-- THÊM DÒNG NÀY
+  login_name: "ptook",
   first_name: "Peregrin",
   last_name: "Took",
   location: "Gondor",
@@ -84,7 +87,7 @@ const pt = {
 };
 const rk = {
   _id: "57231f1a30e4351f4e9f4bda",
-  login_name: "rkenobi", // <-- THÊM DÒNG NÀY
+  login_name: "rkenobi",
   first_name: "Rey",
   last_name: "Kenobi",
   location: "D'Qar",
@@ -93,7 +96,7 @@ const rk = {
 };
 const al = {
   _id: "57231f1a30e4351f4e9f4bdb",
-  login_name: "aludgate", // <-- THÊM DÒNG NÀY
+  login_name: "aludgate",
   first_name: "April",
   last_name: "Ludgate",
   location: "Pawnee, IN",
@@ -102,7 +105,7 @@ const al = {
 };
 const jo = {
   _id: "57231f1a30e4351f4e9f4bdc",
-  login_name: "jousterhout", // <-- THÊM DÒNG NÀY
+  login_name: "jousterhout",
   first_name: "John",
   last_name: "Ousterhout",
   location: "Stanford, CA",
@@ -206,182 +209,80 @@ const comment1 = {
   _id: "57231f1a30e4351f4e9f4be9",
   date_time: "2012-09-02 14:01:00",
   comment:
-    "Learning new programming languages is hard... " +
-    "it's so easy to forget a </div>!",
-  user: jo,
+      "Learning new programming languages is hard... " +
+      "it's so easy to forget a </div>!",
+  user: jo, // Reference to user object jo
   photo_id: photo1._id,
 };
+// ... (tất cả các định nghĩa comment khác của bạn giữ nguyên) ...
+const comment2 = { _id: "57231f1a30e4351f4e9f4bea", date_time: "2013-09-06 14:02:00", comment: "This is another comment, with a bit more text; if the text gets long enough, does it wrap properly from line to line?", user: jo, photo_id: photo1._id };
+const comment3 = { _id: "57231f1a30e4351f4e9f4beb", date_time: "2013-09-08 14:06:00", comment: "If you see this text in <b>boldface</b> then HTML escaping isn't working properly.", user: jo, photo_id: photo1._id };
+const comment4 = { _id: "57231f1a30e4351f4e9f4bec", date_time: "2009-09-14 18:07:00", comment: "If there is one thing the history of evolution has taught us it's that life will not be contained. Life breaks free, it expands to new territories and crashes through barriers, painfully, maybe even dangerously, but, uh... well, there it is. Life finds a way.", user: im, photo_id: photo2._id };
+const comment5 = { _id: "57231f1a30e4351f4e9f4bed", date_time: "2013-11-28 17:45:13", comment: "Back from my trip. Did IQs just... drop sharply while I was away?", user: er, photo_id: photo5._id };
+const comment6 = { _id: "57231f1a30e4351f4e9f4bee", date_time: "2013-11-02 14:07:00", comment: "Hey Rey, great form. Love what you do with the scavenged tech, got any tips?", user: er, photo_id: photo7._id };
+const comment7 = { _id: "57231f1a30e4351f4e9f4bef", date_time: "2013-11-02 14:09:15", comment: "Definitely! I love your work! I'm away on a trip at the moment, but let's meet up when I get back! :)", user: rk, photo_id: photo7._id };
+const comment8 = { _id: "57231f1a30e4351f4e9f4bf0", date_time: "2010-09-06 13:59:33", comment: "Made a new friend today! Well, they followed me home, anyway.", user: rk, photo_id: photo8._id };
+const comment9 = { _id: "57231f1a30e4351f4e9f4bf1", date_time: "2008-10-16 18:04:55", comment: "Wouldn't get anywhere without this beauty! Completely built from scraps by hand, but she goes at top speeds that'll rival any First Order piece of junk.", user: rk, photo_id: photo12._id };
+const comment10 = { _id: "57231f1a30e4351f4e9f4bf2", date_time: "2013-12-04 13:12:00", comment: "What do you mean you haven't heard of second breakfast?", user: pt, photo_id: photo10._id };
+const comment11 = { _id: "57231f1a30e4351f4e9f4bf3", date_time: "2013-09-04 10:14:32", comment: "Beautiful yet cold and aloof. Loner. Does not obey, occasionally chooses to cooperate. ", user: al, photo_id: photo11._id };
+const comment12 = { _id: "57231f1a30e4351f4e9f4bf4", date_time: "2016-01-04 2:00:01", comment: "Which one are you?", user: al, photo_id: photo9._id };
+const comment13 = { _id: "57231f1a30e4351f4e9f4bf5", date_time: "2016-01-04 2:04:01", comment: "The tall one.", user: pt, photo_id: photo9._id };
 
-const comment2 = {
-  _id: "57231f1a30e4351f4e9f4bea",
-  date_time: "2013-09-06 14:02:00",
-  comment:
-    "This is another comment, with a bit more text; " +
-    "if the text gets long enough, does it wrap properly " +
-    "from line to line?",
-  user: jo,
-  photo_id: photo1._id,
-};
-
-const comment3 = {
-  _id: "57231f1a30e4351f4e9f4beb",
-  date_time: "2013-09-08 14:06:00",
-  comment:
-    "If you see this text in <b>boldface</b> " +
-    "then HTML escaping isn't working properly.",
-  user: jo,
-  photo_id: photo1._id,
-};
-
-const comment4 = {
-  _id: "57231f1a30e4351f4e9f4bec",
-  date_time: "2009-09-14 18:07:00",
-  comment:
-    "If there is one thing the history of evolution has" +
-    " taught us it's that life will not be contained. Life breaks " +
-    "free, it expands to new territories and crashes through " +
-    "barriers, painfully, maybe even dangerously, but, uh... well, " +
-    "there it is. Life finds a way.",
-  user: im,
-  photo_id: photo2._id,
-};
-
-const comment5 = {
-  _id: "57231f1a30e4351f4e9f4bed",
-  date_time: "2013-11-28 17:45:13",
-  comment:
-    "Back from my trip. Did IQs just... drop sharply while I was " + "away?",
-  user: er,
-  photo_id: photo5._id,
-};
-
-const comment6 = {
-  _id: "57231f1a30e4351f4e9f4bee",
-  date_time: "2013-11-02 14:07:00",
-  comment:
-    "Hey Rey, great form. Love what " +
-    "you do with the scavenged tech, got any tips?",
-  user: er,
-  photo_id: photo7._id,
-};
-
-const comment7 = {
-  _id: "57231f1a30e4351f4e9f4bef",
-  date_time: "2013-11-02 14:09:15",
-  comment:
-    "Definitely! I love your work! I'm away on a trip at " +
-    "the moment, but let's meet up when I get back! :)",
-  user: rk,
-  photo_id: photo7._id,
-};
-
-const comment8 = {
-  _id: "57231f1a30e4351f4e9f4bf0",
-  date_time: "2010-09-06 13:59:33",
-  comment: "Made a new friend today! Well, they followed me " + "home, anyway.",
-  user: rk,
-  photo_id: photo8._id,
-};
-
-const comment9 = {
-  _id: "57231f1a30e4351f4e9f4bf1",
-  date_time: "2008-10-16 18:04:55",
-  comment:
-    "Wouldn't get anywhere without this beauty! " +
-    "Completely built from scraps by hand, but she goes at top " +
-    "speeds that'll rival any First Order piece of junk.",
-  user: rk,
-  photo_id: photo12._id,
-};
-
-const comment10 = {
-  _id: "57231f1a30e4351f4e9f4bf2",
-  date_time: "2013-12-04 13:12:00",
-  comment: "What do you mean you haven't heard of second " + "breakfast?",
-  user: pt,
-  photo_id: photo10._id,
-};
-
-const comment11 = {
-  _id: "57231f1a30e4351f4e9f4bf3",
-  date_time: "2013-09-04 10:14:32",
-  comment:
-    "Beautiful yet cold and aloof. Loner. Does not obey, " +
-    "occasionally chooses to cooperate. ",
-  user: al,
-  photo_id: photo11._id,
-};
-
-const comment12 = {
-  _id: "57231f1a30e4351f4e9f4bf4",
-  date_time: "2016-01-04 2:00:01",
-  comment: "Which one are you?",
-  user: al,
-  photo_id: photo9._id,
-};
-
-const comment13 = {
-  _id: "57231f1a30e4351f4e9f4bf5",
-  date_time: "2016-01-04 2:04:01",
-  comment: "The tall one.",
-  user: pt,
-  photo_id: photo9._id,
-};
 
 const comments = [
-  comment1,
-  comment2,
-  comment3,
-  comment4,
-  comment5,
-  comment6,
-  comment7,
-  comment8,
-  comment9,
-  comment10,
-  comment11,
-  comment12,
-  comment13,
+  comment1, comment2, comment3, comment4, comment5, comment6, comment7,
+  comment8, comment9, comment10, comment11, comment12, comment13
 ];
 
+// Gán comments vào mảng photos tương ứng
 comments.forEach(function (comment) {
-  const photo = photos.filter(function (photo) {
-    return photo._id === comment.photo_id;
-  })[0]; // Only one match. Return the content of the match inside the array
+  const photo = photos.find(function (p) { // Sử dụng find thay vì filter[0] cho gọn hơn
+    return p._id === comment.photo_id;
+  });
 
-  if (!photo.comments) {
-    photo.comments = [];
+  if (photo) { // Kiểm tra xem photo có được tìm thấy không
+    if (!photo.comments) {
+      photo.comments = [];
+    }
+    photo.comments.push(comment);
+  } else {
+    console.warn(`Comment with _id ${comment._id} references a photo_id ${comment.photo_id} that was not found.`);
   }
-  photo.comments.push(comment);
 });
 
+// --- Định nghĩa các hàm model ---
 const userListModel = function () {
   return users;
 };
 
 const userModel = function (userId) {
-  for (let i = 0; i < users.length; i++) {
-    if (users[i]._id === userId) {
-      return users[i];
-    }
-  }
-  return null;
+  return users.find(user => user._id === userId) || null; // Dùng find cho gọn
 };
 
 const photoOfUserModel = function (userId) {
+  // Mảng 'photos' ở đây đã được gán comments từ vòng lặp comments.forEach ở trên
   return photos.filter(function (photo) {
     return photo.user_id === userId;
   });
 };
 
+// *** THÊM HÀM MỚI NÀY ***
+const photoListModel = function () {
+  // Trả về toàn bộ mảng 'photos'. Mảng này đã được xử lý comments ở trên.
+  return photos;
+};
+// *************************
+
 const schemaModel = function () {
   return schemaInfo;
 };
 
+// --- Export object models ---
 const models = {
   userListModel: userListModel,
   userModel: userModel,
   photoOfUserModel: photoOfUserModel,
+  photoListModel: photoListModel, // <<-- THÊM HÀM MỚI VÀO EXPORT
   schemaInfo: schemaModel,
 };
 
