@@ -17,7 +17,7 @@
       <change afterPath="$PROJECT_DIR$/../CNPM/CNPM.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../CNPM/GiaoDienDangNhap.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../CNPM/GiaoDienQuanLyNhanVien.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/PhotoUploadModal.jsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/Practice_Code.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/editor.xml" afterDir="false" />
@@ -29,25 +29,20 @@
       <change afterPath="$PROJECT_DIR$/../sandbox/.env" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../sandbox/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dbLoad.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/dbLoad.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/photoModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/photoModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/userModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/AddCommentForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/AddCommentForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/LoginRegister.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/LoginRegister.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/PhotoDetailPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/PhotoDetailPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/TopBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TopBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UserList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/context/UserContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/UserContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelData/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/modelData/models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/AdminRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/AdminRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/PhotoRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/PhotoRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/UserRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/UserRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,43 +53,43 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "TuanJS-TEC"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;TuanJS-TEC&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/TuanJS-TEC/Final-Exam-LTW.git",
-    "accountId": "7ffb55fb-ea55-4f33-8f95-153b45f1c163"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TuanJS-TEC/Final-Exam-LTW.git&quot;,
+    &quot;accountId&quot;: &quot;7ffb55fb-ea55-4f33-8f95-153b45f1c163&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2xogN9pr4869ykpG4siInXf5vle" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.localhost:5174.executor": "Debug",
-    "JavaScript Debug.localhost:5175.executor": "Debug",
-    "JavaScript Debug.localhost:5176.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.localhost:5174.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.localhost:5175.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.localhost:5176.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="JavaScript Debug.localhost:5175">
     <configuration name="localhost:5174" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5174/">
       <method v="2" />
@@ -128,7 +123,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1748609797210</updated>
-      <workItem from="1748609798236" duration="44449000" />
+      <workItem from="1748609798236" duration="44765000" />
+      <workItem from="1748859370004" duration="6902000" />
+      <workItem from="1748959183030" duration="6704000" />
     </task>
     <servers />
   </component>

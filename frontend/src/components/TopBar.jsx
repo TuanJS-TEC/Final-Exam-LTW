@@ -1,55 +1,99 @@
 // frontend/src/components/TopBar.jsx
 import React from 'react';
-import { useUser } from '../hooks/useUser.jsx'; // Đảm bảo đường dẫn đúng
-// import { Link } from 'react-router-dom'; // Có thể cần Link nếu nút Add Photo điều hướng đến trang khác
+import { useUser } from '../hooks/useUser.jsx';
+import { Link } from 'react-router-dom'; // Import Link để có thể dùng cho logo
 
-function TopBar() {
-    const { currentUser, logoutUser, loading } = useUser();
+function TopBar({ onAddPhotoClick }) {
+    const { currentUser, logoutUser, loading: userContextLoading } = useUser(); // Đổi tên loading để rõ ràng hơn
 
     const handleLogout = async () => {
         await logoutUser();
     };
 
-    const handleAddPhotoClick = () => {
-        // Bước đầu, chỉ log ra console. Sau này sẽ mở form upload.
-        console.log('Add Photo button clicked!');
-        // Ví dụ: setIsUploadModalOpen(true); // Nếu bạn dùng modal
+    const handleInternalAddPhotoClick = () => {
+        if (onAddPhotoClick) {
+            onAddPhotoClick();
+        } else {
+            console.warn("TopBar: onAddPhotoClick prop was not provided. Modal won't open.");
+        }
     };
 
+    // --- Định nghĩa các style cho dễ quản lý ---
+    const topBarStyle = {
+        backgroundColor: '#2E7D32', // Một màu xanh lá cây đậm hơn (bạn có thể đổi lại #16610E nếu thích)
+        color: 'white',
+        padding: '15px 30px',       // <<-- TĂNG PADDING CHO TOPBAR CAO HƠN
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderBottom: '1px solid #1B5E20' // Viền dưới đậm hơn
+    };
+
+    const appTitleStyle = {
+        fontSize: '1.8em',          // <<-- TĂNG CỠ CHỮ TIÊU ĐỀ
+        fontWeight: 'bold',
+        textDecoration: 'none',     // Bỏ gạch chân nếu dùng Link
+        color: 'white'              // Đảm bảo màu chữ cho Link
+    };
+
+    const userInfoStyle = {
+        fontSize: '1em',            // Cỡ chữ cho thông tin người dùng
+        display: 'flex',            // Sắp xếp các item con theo hàng ngang
+        alignItems: 'center'        // Căn giữa theo chiều dọc
+    };
+
+    const buttonBaseStyle = {
+        padding: '8px 15px',
+        color: 'white',
+        border: 'none',
+        borderRadius: '4px',
+        cursor: 'pointer',
+        marginLeft: '10px',
+        fontWeight: '500',
+        transition: 'background-color 0.2s ease',
+    };
+
+    const addPhotoButtonstyle = {
+        ...buttonBaseStyle,
+        backgroundColor: '#4CAF50', // Màu xanh lá cho nút Add Photo
+    };
+
+    const logoutButtonStyle = {
+        ...buttonBaseStyle,
+        backgroundColor: '#f44336', // Màu đỏ cho nút Logout
+    };
+    // --- Kết thúc định nghĩa style ---
+
+
     return (
-        <div className="top-bar" style={{
-            backgroundColor: '#16610E',
-            color: 'white',
-            padding: '10px 20px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            borderBottom: '1px solid #ccc'
-        }}>
-            <div className="app-title" style={{ fontSize: '1.5em', fontWeight: 'bold' }}>
-                PhotoShare
+        <div className="top-bar" style={topBarStyle}>
+            <div className="app-title">
+                {/* Nếu currentUser tồn tại, PhotoShare là Link về trang chủ, ngược lại là text thường */}
+                {currentUser ? (
+                    <Link to="/" style={appTitleStyle}>PhotoShare</Link>
+                ) : (
+                    <span style={appTitleStyle}>PhotoShare</span>
+                )}
             </div>
-            <div className="user-info">
+            <div className="user-info" style={userInfoStyle}>
                 {currentUser ? (
                     <>
-                        <span>Hi, {currentUser.first_name || currentUser.login_name}!</span>
+                        <span>Hi, {currentUser.first_name || currentUser.login_name || 'User'}!</span>
 
-                        {/* NÚT "ADD PHOTO" MỚI */}
                         <button
-                            onClick={handleAddPhotoClick}
-                            style={{ marginLeft: '10px', marginRight: '10px' }}
-                            disabled={loading} // Có thể không cần disable nút này khi đang logout
+                            onClick={handleInternalAddPhotoClick}
+                            style={addPhotoButtonstyle}
+                            // disabled={userContextLoading} // Cân nhắc có nên disable khi đang login/logout không
                         >
                             Add Photo
                         </button>
-                        {/* KẾT THÚC NÚT "ADD PHOTO" */}
 
                         <button
                             onClick={handleLogout}
-                            disabled={loading}
-                            // style={{ marginLeft: '10px' }} // Đã có marginRight ở nút Add Photo
+                            disabled={userContextLoading} // Disable khi đang xử lý logout
+                            style={logoutButtonStyle}
                         >
-                            {loading && AddCommentForm.isSubmitting /* Sửa lại điều kiện này nếu cần */ ? 'Processing...' : 'Logout'}
+                            {userContextLoading ? 'Logging out...' : 'Logout'}
                         </button>
                     </>
                 ) : (

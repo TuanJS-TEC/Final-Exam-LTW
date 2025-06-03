@@ -1,8 +1,8 @@
 // frontend/src/components/PhotoDetailPage.jsx
-import React, { useState, useEffect, useCallback } from 'react'; // 1. THÊM useCallback
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import AddCommentForm from "./AddCommentForm.jsx"; // Bạn đã import đúng
+import AddCommentForm from "./AddCommentForm.jsx";
 
 function PhotoDetailPage() {
     const { photoId } = useParams();
@@ -10,7 +10,7 @@ function PhotoDetailPage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
-    // 2. SỬ DỤNG useCallback cho fetchPhotoDetails
+    //SỬ DỤNG useCallback cho fetchPhotoDetails
     const fetchPhotoDetails = useCallback(async () => {
         if (!photoId) {
             setError('Photo ID is missing.');
@@ -35,17 +35,16 @@ function PhotoDetailPage() {
         } finally {
             setLoading(false);
         }
-    }, [photoId]); // Phụ thuộc vào photoId
+    }, [photoId]);
 
     useEffect(() => {
         fetchPhotoDetails();
-    }, [fetchPhotoDetails]); // useEffect giờ phụ thuộc vào hàm fetchPhotoDetails đã được useCallback
+    }, [fetchPhotoDetails]);
 
-    // 3. ĐỊNH NGHĨA HÀM CALLBACK ĐỂ CẬP NHẬT COMMENTS
+    // ĐỊNH NGHĨA HÀM CALLBACK ĐỂ CẬP NHẬT COMMENTS
     const handleCommentAdded = (updatedPhotoData) => {
         console.log("PhotoDetailPage: New comment added, updating photoDetails with:", updatedPhotoData);
-        // Cập nhật state photoDetails với dữ liệu ảnh mới (đã bao gồm bình luận mới nhất và được populate)
-        // Backend API POST /commentsOfPhoto/:photoId đã trả về updatedPhoto
+
         setPhotoDetails(updatedPhotoData);
     };
 
@@ -58,8 +57,7 @@ function PhotoDetailPage() {
     }
 
     if (!photoDetails) {
-        // Nếu vẫn loading (ví dụ: khi refresh comment) thì không hiển thị "No photo details"
-        // Trừ khi loading đã xong và vẫn không có photoDetails
+
         return !loading ? <p>No photo details found or photo does not exist.</p> : null;
     }
 

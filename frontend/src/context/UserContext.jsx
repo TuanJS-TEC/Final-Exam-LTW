@@ -2,7 +2,7 @@
 import React, { createContext, useState } from 'react'; // Bỏ 'useContext' khỏi đây vì không dùng trực tiếp nữa
 import axios from 'axios';
 
-export const UserContext = createContext(null); // <<== THÊM "export" VÀO ĐÂY
+export const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
@@ -10,18 +10,20 @@ export const UserProvider = ({ children }) => {
     const [error, setError] = useState('');
 
     // Hàm loginUser (giữ nguyên như bạn đã cung cấp)
-    const loginUser = async (loginName) => {
+    const loginUser = async (loginName, password) => {
         setLoading(true);
         setError('');
         try {
             const response = await axios.post('http://localhost:8081/admin/login', {
-                login_name: loginName
+                login_name: loginName,
+                password: password
             },{
                 withCredentials: true,
             });
+
             if (response.data) {
                 setCurrentUser(response.data);
-                console.log('Login successful (from Context):', response.data); // Sửa log một chút
+                console.log('Login successful (from Context):', response.data);
                 return true;
             } else {
                 setError('Login failed: No user data received.');
@@ -29,9 +31,9 @@ export const UserProvider = ({ children }) => {
                 return false;
             }
         } catch (err) {
-            const errorMessage = err.response?.data?.message || 'Login failed. Please check credentials or server status.'; // Dùng optional chaining
+            const errorMessage = err.response?.data?.message || 'Login failed. Please check credentials or server status.';
             setError(errorMessage);
-            console.error('Login error details (from Context):', err.response || err); // Sửa log
+            console.error('Login error details (from Context):', err.response || err);
             setCurrentUser(null);
             return false;
         } finally {
