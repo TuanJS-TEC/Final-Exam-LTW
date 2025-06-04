@@ -17,7 +17,8 @@
       <change afterPath="$PROJECT_DIR$/../CNPM/CNPM.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../CNPM/GiaoDienDangNhap.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../CNPM/GiaoDienQuanLyNhanVien.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/PhotoUploadModal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/UserDetailPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/updateOldUsers.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/Practice_Code.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Practice_Code/.idea/editor.xml" afterDir="false" />
@@ -29,20 +30,17 @@
       <change afterPath="$PROJECT_DIR$/../sandbox/.env" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../sandbox/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/dbLoad.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/dbLoad.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/userModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/LoginRegister.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/LoginRegister.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/PhotoDetailPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/PhotoDetailPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TopBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TopBar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/context/UserContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/context/UserContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useUser.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/authMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/authMiddleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongodb.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/AdminRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/AdminRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/PhotoRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/PhotoRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/UserRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/UserRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +63,9 @@
     &quot;accountId&quot;: &quot;7ffb55fb-ea55-4f33-8f95-153b45f1c163&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -90,6 +91,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager" selected="JavaScript Debug.localhost:5175">
     <configuration name="localhost:5174" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:5174/">
       <method v="2" />
@@ -125,11 +131,30 @@
       <updated>1748609797210</updated>
       <workItem from="1748609798236" duration="44765000" />
       <workItem from="1748859370004" duration="6902000" />
-      <workItem from="1748959183030" duration="6704000" />
+      <workItem from="1748959183030" duration="7351000" />
+      <workItem from="1749019324487" duration="16028000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/components/LoginRegister.jsx</url>
+          <line>10</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/components/LoginRegister.jsx</url>
+          <line>171</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

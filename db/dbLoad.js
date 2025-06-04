@@ -2,8 +2,7 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-// Giả sử models.js được export từ modelData/models.js
-// và chứa các mảng user, photo, comment gốc
+
 const cs142models = require("../modelData/models.js");
 
 const User = require("../db/userModel.js");
@@ -34,15 +33,15 @@ async function dbLoad() {
   }
 
   // ----- Tạo Users -----
-  const userObjectsFromModelData = cs142models.userListModel(); // Lấy danh sách user gốc từ modelData
-  const mapFakeIdToRealObjectId = {}; // Sẽ map string _id từ modelData sang ObjectId thật trong DB
+  const userObjectsFromModelData = cs142models.userListModel();
+  const mapFakeIdToRealObjectId = {};
 
   for (const userModel of userObjectsFromModelData) {
     try {
-      const userObj = await User.create({ // Sử dụng User.create và truyền _id
+      const userObj = await User.create({
         _id: userModel._id, // <<-- SỬ DỤNG _id TỪ DỮ LIỆU MẪU
         login_name: userModel.login_name,
-        first_name: userModel.first_name, // <<-- SỬA 'first' THÀNH 'first_name' (nếu schema là first_name)
+        first_name: userModel.first_name,
         last_name: userModel.last_name,
         location: userModel.location,
         description: userModel.description,

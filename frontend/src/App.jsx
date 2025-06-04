@@ -7,8 +7,9 @@ import { useUser } from "./hooks/useUser.jsx";
 import LoginRegister from "./components/LoginRegister.jsx";
 import TopBar from './components/TopBar.jsx';
 import UserList from './components/UserList.jsx';
+import UserDetailPage from './components/UserDetailPage.jsx';
 import PhotoDetailPage from './components/PhotoDetailPage.jsx';
-import PhotoUploadModal from './components/PhotoUploadModal.jsx'; // Đã import
+import PhotoUploadModal from './components/PhotoUploadModal.jsx';
 import { Routes, Route, Navigate, Outlet, Link } from 'react-router-dom';
 
 // --- Helper Components ---
@@ -42,27 +43,27 @@ function MainLayout({ onAddPhotoClick }) {
     );
 }
 
-// ProtectedRoute nhận onAddPhotoClick để truyền cho MainLayout
+
 function ProtectedRoute({ onAddPhotoClick }) {
     const { currentUser, loading: userContextLoading } = useUser();
     console.log('ProtectedRoute - currentUser:', currentUser, '; Context loading:', userContextLoading, '; Will redirect to login?', !currentUser && !userContextLoading);
 
-    if (!currentUser && !userContextLoading) { // Chỉ redirect nếu không có user VÀ context không còn loading
+    if (!currentUser && !userContextLoading) {
         return <Navigate to="/login" replace />;
     }
-    // Nếu đang loading user ban đầu, có thể hiển thị gì đó hoặc chờ
-    if (userContextLoading && !currentUser) { // Ví dụ: Context đang kiểm tra session
+
+    if (userContextLoading && !currentUser) {
         return <div>Checking session...</div>;
     }
-    if (!currentUser) { // Fallback nếu loading xong mà vẫn không có user
+    if (!currentUser) {
         return <Navigate to="/login" replace />;
     }
 
     return <MainLayout onAddPhotoClick={onAddPhotoClick} />;
 }
 
-// HomePage nhận thêm photoListVersion để trigger useEffect
-function HomePage({ photoListVersion }) { // <<-- NHẬN PROP MỚI
+
+function HomePage({ photoListVersion }) {
     const { currentUser } = useUser();
     const [photos, setPhotos] = useState([]);
     const [photoListLoading, setPhotoListLoading] = useState(true);
@@ -74,7 +75,7 @@ function HomePage({ photoListVersion }) { // <<-- NHẬN PROP MỚI
                 setPhotoListLoading(true);
                 setPhotoListError('');
                 try {
-                    // Thêm photoListVersion vào log để theo dõi
+
                     console.log(`HomePage: Fetching photo list (version: ${photoListVersion})...`);
                     const response = await axios.get('http://localhost:8081/api/photo/', { withCredentials: true });
                     setPhotos(response.data);
@@ -91,7 +92,7 @@ function HomePage({ photoListVersion }) { // <<-- NHẬN PROP MỚI
             setPhotos([]);
             setPhotoListLoading(false);
         }
-    }, [currentUser, photoListVersion]); // <<-- THÊM photoListVersion VÀO DEPENDENCY ARRAY
+    }, [currentUser, photoListVersion]);
 
     if (!currentUser) return <div>Loading user information or you are being redirected...</div>;
 
@@ -153,6 +154,7 @@ function AppRoutes() {
                         </div>
                     </MainLayout>
                 } />
+                <Route path="/users/:userId" element={<UserDetailPage />} />
             </Routes>
 
             {/* TRUYỀN onPhotoUploaded XUỐNG MODAL */}

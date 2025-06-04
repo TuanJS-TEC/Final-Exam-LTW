@@ -3,81 +3,43 @@ import React, { useState } from 'react';
 import { useUser } from "../hooks/useUser.jsx";
 import axios from 'axios';
 
-// --- CSS Styles (Inline - Giữ nguyên các style bạn đã có) ---
+// --- CSS Styles (Inline) ---
 const containerStyle = {
-    maxWidth: '450px', // Tăng một chút chiều rộng nếu cần cho form đăng ký
+    maxWidth: '450px',
     margin: '50px auto',
     padding: '30px',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)', // Tăng bóng đổ một chút
-    borderRadius: '10px', // Bo góc nhiều hơn
-    backgroundColor: '#ffffff', // Nền trắng cho form
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+    borderRadius: '10px',
+    backgroundColor: '#075B5E',
 };
 
 const formGroupStyle = {
-    marginBottom: '18px', // Giảm một chút margin
+    marginBottom: '18px',
 };
 
 const labelStyle = {
     display: 'block',
-    marginBottom: '6px',
-    fontWeight: '600', // Đậm hơn một chút
-    color: '#4A5568', // Màu xám đậm
+    marginBottom: '8px', // Tăng một chút khoảng cách cho dễ thở hơn
+    fontWeight: '600',
+    color: '#FFE6E1', // <<-- SỬA MÀU CHỮ LABEL ĐẬM HƠN (Xám đậm)
     fontSize: '14px',
 };
 
 const inputStyle = {
     width: '100%',
-    padding: '10px 12px', // Điều chỉnh padding
-    border: '1px solid #CBD5E0', // Viền nhạt hơn
+    padding: '12px', // Tăng padding cho input cao hơn
+    border: '1px solid #cccccc', // Viền đậm hơn một chút
     borderRadius: '6px',
     boxSizing: 'border-box',
-    fontSize: '15px',
-    color: '#2D3748',
-};
-
-const buttonStyle = {
-    width: '100%',
-    padding: '12px',
-    backgroundColor: '#4299E1', // Màu xanh dương (có thể đổi)
-    color: 'white',
-    border: 'none',
-    borderRadius: '6px',
-    cursor: 'pointer',
     fontSize: '16px',
-    fontWeight: 'bold',
-    transition: 'background-color 0.2s ease-in-out', // Hiệu ứng chuyển màu
+    color: '#9FC87E',
 };
 
-// Style cho nút chuyển đổi form (trông giống link)
-const toggleFormButtonStyle = {
-    background: 'none',
-    border: 'none',
-    color: '#4299E1', // Màu xanh dương
-    cursor: 'pointer',
-    textDecoration: 'underline',
-    padding: '0',
-    fontSize: '14px',
-    fontWeight: '600',
-};
-
-const errorStyle = {
-    color: '#E53E3E', // Màu đỏ đậm hơn
-    marginTop: '15px',
-    textAlign: 'center',
-    fontSize: '14px',
-};
-const successStyle = {
-    color: '#38A169', // Màu xanh lá đậm hơn
-    marginTop: '15px',
-    textAlign: 'center',
-    fontSize: '14px',
-};
-const titleStyle = {
-    textAlign: 'center',
-    marginBottom: '30px', // Tăng margin
-    color: '#2D3748', // Màu tiêu đề
-    fontSize: '24px', // Kích thước tiêu đề
-};
+const buttonStyle = {};
+const toggleFormButtonStyle = {};
+const errorStyle = {};
+const successStyle = {};
+const titleStyle = {};
 // --- Kết thúc CSS Styles ---
 
 
@@ -100,17 +62,15 @@ function LoginRegister() {
     const [regError, setRegError] = useState('');
     const [regSuccessMessage, setRegSuccessMessage] = useState('');
 
-    // --- State để chuyển đổi giữa form Đăng nhập và Đăng ký ---
-    const [isLoginView, setIsLoginView] = useState(true); // Mặc định là xem form Đăng nhập
+    const [isLoginView, setIsLoginView] = useState(true);
 
-    const handleLogin = async (event) => { /* ... code handleLogin của bạn giữ nguyên ... */ };
-    const handleRegister = async (event) => { /* ... code handleRegister của bạn giữ nguyên ... */ };
-    // (Mình sẽ copy lại code của handleLogin và handleRegister ở dưới cho đầy đủ)
+    const handleLoginSubmit = async (event) => { /* ... code handleLoginSubmit của bạn giữ nguyên ... */ };
+    const handleRegisterSubmit = async (event) => { /* ... code handleRegisterSubmit của bạn giữ nguyên ... */ };
+    // (Mình sẽ copy lại code của handleLoginSubmit và handleRegisterSubmit từ phiên bản trước cho đầy đủ)
 
-    // Hàm login (đã có từ code bạn gửi)
-    const handleLoginSubmit = async (event) => { // Đổi tên để tránh trùng với loginUser từ context
+    const handleLoginSubmitFull = async (event) => {
         event.preventDefault();
-        setLoginError(''); // Xóa lỗi login cũ
+        setLoginError('');
         if (!loginNameInput.trim()) {
             setLoginError('Vui lòng nhập Tên đăng nhập.');
             return;
@@ -130,8 +90,7 @@ function LoginRegister() {
         }
     };
 
-    // Hàm register (đã có từ code bạn gửi)
-    const handleRegisterSubmit = async (event) => { // Đổi tên để tránh nhầm lẫn
+    const handleRegisterSubmitFull = async (event) => {
         event.preventDefault();
         setRegError('');
         setRegSuccessMessage('');
@@ -160,11 +119,6 @@ function LoginRegister() {
             setRegLoginName(''); setRegPassword(''); setRegPasswordConfirm('');
             setRegFirstName(''); setRegLastName(''); setRegLocation('');
             setRegDescription(''); setRegOccupation('');
-            // Tự động chuyển sang view login sau khi đăng ký thành công (tùy chọn)
-            // setTimeout(() => {
-            //   setIsLoginView(true);
-            //   setRegSuccessMessage(''); // Xóa thông báo thành công
-            // }, 2000);
         } catch (err) {
             setRegError(err.response?.data?.message || 'Đăng ký thất bại. Vui lòng thử lại.');
         } finally {
@@ -172,14 +126,13 @@ function LoginRegister() {
         }
     };
 
-
     return (
         <div style={containerStyle}>
             {isLoginView ? (
                 // --- FORM ĐĂNG NHẬP ---
                 <>
                     <h2 style={titleStyle}>Đăng Nhập</h2>
-                    <form onSubmit={handleLoginSubmit}>
+                    <form onSubmit={handleLoginSubmitFull}> {/* Sử dụng tên hàm mới */}
                         <div style={formGroupStyle}>
                             <label htmlFor="loginName" style={labelStyle}>Tên đăng nhập:</label>
                             <input type="text" id="loginName" value={loginNameInput}
@@ -197,7 +150,7 @@ function LoginRegister() {
                         </button>
                     </form>
                     {loginError && <p style={errorStyle}>{loginError}</p>}
-                    <p style={{ textAlign: 'center', marginTop: '25px', fontSize: '14px', color: '#4A5568' }}>
+                    <p style={{ textAlign: 'center', marginTop: '25px', fontSize: '14px', color: '#EFE4D2' }}>
                         Chưa có tài khoản?{' '}
                         <button onClick={() => { setIsLoginView(false); setLoginError(''); setRegError(''); setRegSuccessMessage(''); }} style={toggleFormButtonStyle}>
                             Đăng ký ngay
@@ -208,27 +161,43 @@ function LoginRegister() {
                 // --- FORM ĐĂNG KÝ ---
                 <>
                     <h2 style={titleStyle}>Đăng Ký Tài Khoản Mới</h2>
-                    <form onSubmit={handleRegisterSubmit}>
+                    <form onSubmit={handleRegisterSubmitFull}> {/* Sử dụng tên hàm mới */}
+                        {/* Tên đăng nhập (Đăng ký) */}
                         <div style={formGroupStyle}>
                             <label htmlFor="regLoginName" style={labelStyle}>Tên đăng nhập (*):</label>
-                            <input type="text" id="regLoginName" value={regLoginName} onChange={(e) => setRegLoginName(e.target.value)} disabled={regLoading} style={inputStyle} />
+                            <input type="text" id="regLoginName" value={regLoginName}
+                                   onChange={(e) => {setRegLoginName(e.target.value); if(regError) setRegError(''); if(regSuccessMessage) setRegSuccessMessage('');}}
+                                   disabled={regLoading} style={inputStyle} placeholder="Tên bạn muốn dùng để đăng nhập"/>
                         </div>
+                        {/* Mật khẩu (Đăng ký) */}
                         <div style={formGroupStyle}>
                             <label htmlFor="regPassword" style={labelStyle}>Mật khẩu (*):</label>
-                            <input type="password" id="regPassword" value={regPassword} onChange={(e) => setRegPassword(e.target.value)} disabled={regLoading} style={inputStyle} />
+                            <input type="password" id="regPassword" value={regPassword}
+                                   onChange={(e) => {setRegPassword(e.target.value); if(regError) setRegError('');}}
+                                   disabled={regLoading} style={inputStyle} placeholder="Ít nhất 6 ký tự"/>
                         </div>
+                        {/* Xác nhận Mật khẩu (Đăng ký) */}
                         <div style={formGroupStyle}>
                             <label htmlFor="regPasswordConfirm" style={labelStyle}>Xác nhận mật khẩu (*):</label>
-                            <input type="password" id="regPasswordConfirm" value={regPasswordConfirm} onChange={(e) => setRegPasswordConfirm(e.target.value)} disabled={regLoading} style={inputStyle} />
+                            <input type="password" id="regPasswordConfirm" value={regPasswordConfirm}
+                                   onChange={(e) => {setRegPasswordConfirm(e.target.value); if(regError) setRegError('');}}
+                                   disabled={regLoading} style={inputStyle} placeholder="Nhập lại mật khẩu"/>
                         </div>
+                        {/* Tên (Đăng ký) */}
                         <div style={formGroupStyle}>
                             <label htmlFor="regFirstName" style={labelStyle}>Tên (*):</label>
-                            <input type="text" id="regFirstName" value={regFirstName} onChange={(e) => setRegFirstName(e.target.value)} disabled={regLoading} style={inputStyle} />
+                            <input type="text" id="regFirstName" value={regFirstName}
+                                   onChange={(e) => {setRegFirstName(e.target.value); if(regError) setRegError('');}}
+                                   disabled={regLoading} style={inputStyle} />
                         </div>
+                        {/* Họ (Đăng ký) */}
                         <div style={formGroupStyle}>
                             <label htmlFor="regLastName" style={labelStyle}>Họ (*):</label>
-                            <input type="text" id="regLastName" value={regLastName} onChange={(e) => setRegLastName(e.target.value)} disabled={regLoading} style={inputStyle} />
+                            <input type="text" id="regLastName" value={regLastName}
+                                   onChange={(e) => {setRegLastName(e.target.value); if(regError) setRegError('');}}
+                                   disabled={regLoading} style={inputStyle} />
                         </div>
+                        {/* Các trường tùy chọn */}
                         <div style={formGroupStyle}>
                             <label htmlFor="regLocation" style={labelStyle}>Địa điểm:</label>
                             <input type="text" id="regLocation" value={regLocation} onChange={(e) => setRegLocation(e.target.value)} disabled={regLoading} style={inputStyle} />

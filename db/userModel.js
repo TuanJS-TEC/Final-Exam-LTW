@@ -2,8 +2,9 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
+//Cau truc nguoi dung
 const userSchema = new mongoose.Schema({
-  login_name: { type: String, required: true, unique: true },
+  login_name: { type: String, required: true, unique: true }, //vd1
   first_name: { type: String,required: true },
   last_name: { type: String,required: true },
   location: { type: String },

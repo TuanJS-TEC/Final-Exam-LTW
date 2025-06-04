@@ -2,6 +2,8 @@
 import React, { createContext, useState } from 'react'; // Bỏ 'useContext' khỏi đây vì không dùng trực tiếp nữa
 import axios from 'axios';
 
+//Dinh nghia UserContext Object va UserProvider
+
 export const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
@@ -9,7 +11,7 @@ export const UserProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
-    // Hàm loginUser (giữ nguyên như bạn đã cung cấp)
+
     const loginUser = async (loginName, password) => {
         setLoading(true);
         setError('');
@@ -41,7 +43,7 @@ export const UserProvider = ({ children }) => {
         }
     };
 
-    // Hàm logoutUser (giữ nguyên như bạn đã cung cấp)
+
     const logoutUser = async () => {
         setLoading(true);
         setError('');

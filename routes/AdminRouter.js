@@ -2,9 +2,9 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../db/userModel');
-const bcrypt = require('bcryptjs'); // 1. IMPORT bcryptjs
+const bcrypt = require('bcryptjs');
 
-// POST /admin/login
+// POST /admin/login - xu ly logic dang nhap - tao session
 router.post('/login', async (req, res) => {
 
     const { login_name, password } = req.body;
@@ -31,12 +31,12 @@ router.post('/login', async (req, res) => {
 
         if (!isMatch) {
             console.log(`Login attempt failed: Incorrect password for user "${login_name}"`);
-            // Trả về thông báo chung chung
+
             return res.status(400).json({ message: 'Tên đăng nhập hoặc mật khẩu không đúng.' });
         }
 
 
-        req.session.user = {
+        req.session.user = { // Tao doi tuong session cho user
             _id: user._id,
             login_name: user.login_name,
             first_name: user.first_name,
@@ -64,7 +64,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// POST /admin/logout (Giữ nguyên)
+// POST /admin/logout - huy session - xoa cookie
 router.post('/logout', (req, res) => {
     if (req.session && req.session.user) {
         const loggedInUser = req.session.user.login_name;
@@ -73,7 +73,7 @@ router.post('/logout', (req, res) => {
                 console.error('Error destroying session:', err);
                 return res.status(500).json({ message: 'Logout failed due to server error.' });
             }
-            res.clearCookie('connect.sid');
+            res.clearCookie('connect.sid'); // yeu cau trinh duyet xoa cookie
             console.log(`User ${loggedInUser} logged out successfully. Session destroyed.`);
             return res.status(200).json({ message: 'Đăng xuất thành công.' });
         });
